@@ -39,6 +39,8 @@ const Main = () => {
                                 <td>{author.name}</td>
                                 <td>
                                     <EditButton id={author._id} />
+                                </td>
+                                <td>
                                     <Deletebutton id={author._id} reloadList ={reloadList}/>
                                 </td>
                             </tr>
