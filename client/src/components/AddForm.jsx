@@ -6,6 +6,7 @@ const AddForm = () => {
 
     const [name, setName] = useState("");
     const history = useHistory()
+    const [errArr, setErrorArr] = useState([]);
 
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -16,7 +17,15 @@ const AddForm = () => {
                 setName("")
                 history.push("/");
             })
-            .catch(err=>console.log(err.response.data))
+            .catch(err=>{
+                
+                const errResponse = err.response.data.errors
+                const errors = [];
+                for(const key of Object.keys(errResponse)){
+                    errors.push(errResponse[key].message)
+                }
+                setErrorArr(errors)
+            })
     }
 
     return (
@@ -27,6 +36,13 @@ const AddForm = () => {
                 <button>Submit</button>
             </form>
             <button onClick = {(e)=>{e.preventDefault();history.push("/")}} >Cancel</button>
+            {
+                errArr.map((err, i) =>(
+                    <p key={i}>{err}</p>
+                ))
+                
+            }
+            
         </div>
     )
 };

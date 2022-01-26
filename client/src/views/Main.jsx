@@ -15,7 +15,11 @@ const Main = () => {
 
     useEffect(()=>{
         axios.get(`http://localhost:8000/showAuthors`)
-        .then(res=>setAuthors(res.data))
+        .then(res=>{
+            console.log(res.data)
+            setAuthors(res.data)
+
+        })
         .catch(err=>console.log(err.response))
     },[refresh])
 
@@ -24,7 +28,7 @@ const Main = () => {
 
         <div>
             <h1>Favorite authors</h1>
-            <Link to={'/new'} >Add an author</Link>
+            <Link to={'/new'} ><h3>Add an author</h3></Link>
             <h2>We have quotes by:</h2>
                         <table>
                             <tr>

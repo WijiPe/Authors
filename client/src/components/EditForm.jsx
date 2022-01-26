@@ -7,6 +7,7 @@ const EditForm = (props) => {
     const [name, setName] = useState("");
     const history = useHistory()
     const {id} = props
+    const [errArr, setErrorArr] = useState([]);
 
     useEffect(()=>{
         axios.get(`http://localhost:8000/showOneAuthor/${id}`)
@@ -24,7 +25,14 @@ const EditForm = (props) => {
                 setName("")
                 history.push("/");
             })
-            .catch(err=>console.log(err.response.data))
+            .catch(err=>{
+                const errResponse = err.response.data.errors
+                const errors = [];
+                for(const key of Object.keys(errResponse)){
+                    errors.push(errResponse[key].message)
+                }
+                setErrorArr(errors)
+            })
     }
 
     return (
@@ -34,6 +42,12 @@ const EditForm = (props) => {
                 <label><h4>Name:</h4></label>
                 <input type="Text" onChange={(e)=>setName(e.target.value)} value={name}/>
                 <button>Submit</button>
+                {
+                errArr.map((err, i) =>(
+                    <p key={i}>{err}</p>
+                ))
+                
+            }
             </form>
             <button onClick = {(e)=>{e.preventDefault();history.push("/")}} >Cancel</button>
         </div>
