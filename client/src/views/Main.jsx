@@ -26,7 +26,6 @@ const Main = () => {
     return (
 
         <div>
-            <h1>Favorite authors</h1>
             <Link to={'/new'} ><h3>Add an author</h3></Link>
             <h2>We have quotes by:</h2>
                         <table>

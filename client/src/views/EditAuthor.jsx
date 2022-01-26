@@ -9,7 +9,6 @@ const EditAuthor = () => {
 
     return (
         <div>
-            <h1>Favorite Author</h1>
             <Link to={'/'}><h3>Home</h3></Link>
             <h2>Edit author:</h2>
             <EditForm id={id} />

@@ -41,7 +41,8 @@ const EditForm = (props) => {
             <form onSubmit= {onSubmitHandler}>
                 <label><h4>Name:</h4></label>
                 <input type="Text" onChange={(e)=>setName(e.target.value)} value={name}/>
-                <button>Submit</button>
+                <button type ="button" onClick = {(e)=>{history.push("/")}} >Cancel</button>
+                <button type ="submit" >Submit</button>
                 {
                 errArr.map((err, i) =>(
                     <p key={i}>{err}</p>
@@ -49,7 +50,6 @@ const EditForm = (props) => {
                 
             }
             </form>
-            <button onClick = {(e)=>{e.preventDefault();history.push("/")}} >Cancel</button>
         </div>
     )
 };

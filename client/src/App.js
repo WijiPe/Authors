@@ -7,6 +7,7 @@ import EditAuthor from "./views/EditAuthor";
 const App = () => {
   return (
     <div>
+    <h1>Favorite Authors</h1>
     <BrowserRouter>
       <Switch>
         <Route exact path="/edit/:id">
