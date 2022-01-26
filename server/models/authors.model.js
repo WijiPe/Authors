@@ -3,8 +3,8 @@ const AuthorSchema = new mongoose.Schema({
     name: { 
         type: String,
         required: [true, "Name is required"],
-        minlength: [5, "Title must be at least 5 characters"]  
-    },
+        minlength: [5, "Name must be at least 5 characters"]  
+    }
 }, { timestamps: true });
 
 const Author = mongoose.model('Author', AuthorSchema);

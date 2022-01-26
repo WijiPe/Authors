@@ -1,4 +1,4 @@
-const Author  = require('../models/product.model');
+const Author  = require('../models/authors.model');
 
 module.exports.showAllAuthors = (request, response) => {
     Author.find()
