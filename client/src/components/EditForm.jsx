@@ -48,7 +48,7 @@ const EditForm = (props) => {
                     <p key={i}>{err}</p>
                 ))
                 
-            }
+                }
             </form>
         </div>
     )
