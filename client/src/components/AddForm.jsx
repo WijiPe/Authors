@@ -39,7 +39,6 @@ const AddForm = () => {
                 errArr.map((err, i) =>(
                     <p key={i}>{err}</p>
                 ))
-                
             }
             
         </div>
